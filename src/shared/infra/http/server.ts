@@ -3,7 +3,7 @@ import 'express-async-errors';
 import express, { NextFunction, Request, Response } from 'express';
 import { router } from './routes';
 
-import '../typeorm';
+import createConnection from '../typeorm';
 import '@shared/container';
 
 import swaggerUi from 'swagger-ui-express';
@@ -11,6 +11,8 @@ import swaggerFile from '../../../swagger.json';
 import { AppError } from '@shared/errors/AppError';
 
 const app = express();
+
+createConnection();
 
 app.use(express.json());
 
