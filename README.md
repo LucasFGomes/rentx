@@ -5,9 +5,8 @@
 
 **RN - Regra de negócio**
 [x] Não deve ser possível cadastrar um carro com uma placa já existente
-[] Não deve ser possível alterar a placa de um carro já cadastrado
-[] O carro deve ser cadastrado, por padrão, com disponibilidade
-[] O usuário responsável pelo cadastrado deve ser um administrador do sistema
+[x] O carro deve ser cadastrado, por padrão, com disponibilidade
+[x] O usuário responsável pelo cadastrado deve ser um administrador do sistema
 
 # Listagem de Carros
 
@@ -18,19 +17,17 @@
 [x] Deve ser possível listar todos os carros disponíveis pelo nome do carro
 
 **RN - Regra de negócio**
-[] O usuário não precisa estar logado no sistema
+[x] O usuário não precisa estar logado no sistema
 
 # Cadastro de Especificação no carro
 
 **RF - Requisitos Funcionais**
-[] Deve ser possível cadastrar uma especificação para um carro
-[] Deve ser possível listar todas as especificações
-[] Deve ser possível listar todos os carros
+[x] Deve ser possível cadastrar uma especificação para um carro
 
 **RN - Regra de negócio**
-[] Não deve ser possível cadastrar uma especificação para um carro não cadastrado
-[] Não deve ser possível cadastrar um especificação já existente para o mesmo carro
-[] O usuário responsável pelo cadastrado deve ser um administrador do sistema
+[x] Não deve ser possível cadastrar uma especificação para um carro não cadastrado
+[x] Deve ser possível cadastrar mais de uma especificação já existente para o mesmo carro
+[x] O usuário responsável pelo cadastrado deve ser um administrador do sistema
 
 # Cadastro de imagens do carro
 

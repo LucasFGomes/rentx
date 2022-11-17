@@ -17,3 +17,4 @@ export class AlterTableDeleteUsername1661716492509
     );
   }
 }
+

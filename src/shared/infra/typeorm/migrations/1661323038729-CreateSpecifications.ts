@@ -33,3 +33,4 @@ export class CreateSpecifications1661323038729 implements MigrationInterface {
     await queryRunner.dropTable('specifications');
   }
 }
+
