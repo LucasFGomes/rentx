@@ -32,15 +32,15 @@
 # Cadastro de imagens do carro
 
 **RF - Requisitos Funcionais**
-[] Deve ser possível cadastrar a imagem do carro
+[x] Deve ser possível cadastrar a imagem do carro
 [] Deve ser possível listar todos os carros
 
 **RNF - Requisitos Não Funcionais**
-[] Utilizar o multer para upload de arquivos
+[x] Utilizar o multer para upload de arquivos
 
 **RN - Regra de negócio**
-[] O usuário deve poder cadastrar mais de uma imagem para o mesmo carro
-[] O usuário responsável pelo cadastrado deve ser um administrador do sistema
+[x] O usuário deve poder cadastrar mais de uma imagem para o mesmo carro
+[x] O usuário responsável pelo cadastrado deve ser um administrador do sistema
 
 # Aluguel de carro
 
