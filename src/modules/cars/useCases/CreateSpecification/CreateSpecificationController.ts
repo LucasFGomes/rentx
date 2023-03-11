@@ -10,10 +10,15 @@ class CreateSpecificationController {
       CreateSpecificationUseCase,
     );
 
-    await createSpecificationUseCase.execute({ name, description });
+    try {
+      await createSpecificationUseCase.execute({ name, description });
 
-    return response.status(201).send();
+      return response.status(201).send();
+    } catch (e) {
+      return response.status(e.statusCode).json({ error: e.message });
+    }
   }
 }
 
 export { CreateSpecificationController };
+

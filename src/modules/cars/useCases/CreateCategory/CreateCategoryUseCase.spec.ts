@@ -1,14 +1,16 @@
-import { AppError } from '@shared/errors/AppError';
 import { CategoriesRepositoryInMemory } from '@modules/cars/repositories/in-memory/CategoriesRepositoryInMemory';
+import { AppError } from '@shared/errors/AppError';
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
 let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
-let createUserUseCase: CreateCategoryUseCase;
+let createCategoryUseCase: CreateCategoryUseCase;
 
 describe('Create Category', () => {
   beforeEach(() => {
     categoriesRepositoryInMemory = new CategoriesRepositoryInMemory();
-    createUserUseCase = new CreateCategoryUseCase(categoriesRepositoryInMemory);
+    createCategoryUseCase = new CreateCategoryUseCase(
+      categoriesRepositoryInMemory,
+    );
   });
 
   it('should be able to create a new category', async () => {
@@ -16,7 +18,7 @@ describe('Create Category', () => {
       name: 'category_test',
       description: 'category_description_test',
     };
-    await createUserUseCase.execute({
+    await createCategoryUseCase.execute({
       name: category.name,
       description: category.description,
     });
@@ -35,15 +37,16 @@ describe('Create Category', () => {
         description: 'category_description_test',
       };
 
-      await createUserUseCase.execute({
+      await createCategoryUseCase.execute({
         name: category.name,
         description: category.description,
       });
 
-      await createUserUseCase.execute({
+      await createCategoryUseCase.execute({
         name: category.name,
         description: category.description,
       });
     }).rejects.toBeInstanceOf(AppError);
   });
 });
+

@@ -6,10 +6,15 @@ class ListCategoriesController {
   async handle(request: Request, response: Response): Promise<Response> {
     const listCategoriesUseCase = container.resolve(ListCategoriesUseCase);
 
-    const categories = await listCategoriesUseCase.execute();
+    try {
+      const categories = await listCategoriesUseCase.execute();
 
-    return response.status(200).json(categories);
+      return response.status(200).json(categories);
+    } catch (e) {
+      return response.status(400).json({ error: e.message });
+    }
   }
 }
 
 export { ListCategoriesController };
+
