@@ -11,7 +11,7 @@ import {
 
 import { Car } from './Car';
 
-@Entity()
+@Entity('car_images')
 class CarImage {
   @PrimaryColumn()
   id: string;
@@ -37,3 +37,4 @@ class CarImage {
 }
 
 export { CarImage };
+
