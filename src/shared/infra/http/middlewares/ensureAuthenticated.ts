@@ -1,8 +1,9 @@
+import auth from '@config/auth';
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
+import { AppError } from '@shared/errors/AppError';
 import { NextFunction, Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
 import { container } from 'tsyringe';
-import { AppError } from '@shared/errors/AppError';
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 
 interface IPayload {
   sub: string;
@@ -13,6 +14,7 @@ export async function ensureAuthenticated(
   response: Response,
   next: NextFunction,
 ) {
+  const { secret_token } = auth;
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
@@ -22,10 +24,7 @@ export async function ensureAuthenticated(
   try {
     const [, token] = authHeader.split(' ');
 
-    const { sub: userId } = verify(
-      token,
-      'c6e3663949540460865233d0838ab7ec',
-    ) as IPayload;
+    const { sub: userId } = verify(token, secret_token) as IPayload;
 
     const usersRepository =
       container.resolve<IUsersRepository>('UsersRepository');
@@ -45,3 +44,4 @@ export async function ensureAuthenticated(
     throw new AppError('Invalid token!', 401);
   }
 }
+
