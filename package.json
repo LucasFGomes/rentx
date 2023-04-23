@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn --poll src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
-    "test": "cross-env NODE_ENV=test jest --no-cache --runInBand --detectOpenHandles --forceExit",
-    "test:watch": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles --forceExit --watch",
+    "test": "cross-env NODE_ENV=test jest --no-cache --runInBand --forceExit",
+    "test:watch": "cross-env NODE_ENV=test jest --runInBand --forceExit --watch",
     "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "devDependencies": {
@@ -55,3 +55,4 @@
     "uuid": "^8.3.2"
   }
 }
+
