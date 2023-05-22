@@ -11,9 +11,13 @@ class RefreshTokenController {
 
     const refreshTokenUseCase = container.resolve(RefreshTokenUseCase);
 
-    const refreshToken = await refreshTokenUseCase.execute(token);
+    try {
+      const refreshToken = await refreshTokenUseCase.execute(token);
 
-    return response.json({ refresh_token: refreshToken });
+      return response.json(refreshToken);
+    } catch (e) {
+      return response.status(400).json({ error: e.message });
+    }
   }
 }
 
