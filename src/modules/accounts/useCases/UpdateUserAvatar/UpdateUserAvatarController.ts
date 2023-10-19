@@ -16,3 +16,4 @@ class UpdateUserAvatarController {
 }
 
 export { UpdateUserAvatarController };
+

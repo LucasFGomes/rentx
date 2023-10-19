@@ -9,7 +9,7 @@
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "test": "cross-env NODE_ENV=test jest --no-cache --runInBand --forceExit",
     "test:watch": "cross-env NODE_ENV=test jest --runInBand --forceExit --watch",
-    "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
+    "seed:admin": "ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/admin.ts"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -37,13 +37,16 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.431.0",
     "bcryptjs": "^2.4.3",
     "csv-parse": "^5.3.0",
     "dayjs": "^1.11.7",
+    "dotenv": "^16.3.1",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "handlebars": "^4.7.7",
     "jsonwebtoken": "^8.5.1",
+    "mime": "^3.0.0",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.1",
     "pg": "^8.7.3",
@@ -55,4 +58,3 @@
     "uuid": "^8.3.2"
   }
 }
-
